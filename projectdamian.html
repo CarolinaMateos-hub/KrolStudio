@@ -1,0 +1,282 @@
+<!--
+Descripción: En este archivo HTML te encontrarás con la página del proyecto Anna Atkins.
+Estructura general:
+- Animación del cursor
+- Menú de navegación
+- Main / Contenido principal
+- Footer / Pie de página
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damián Castagna</title>
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="js/projectdamian.js" defer></script>
+    <!--Grupo de links para que mi web tenga el logo en la pestaña al abrirlo en google-->
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+</head>
+
+<body>
+    <!--
+    Animación del cursor
+    Un simple div necesario, para más tarde en CSS y Javascript animarlo. -->
+    <div class="Cursor"></div>
+    <!--
+    Menú de navegación
+    El menú de navegación permitirá al usuario navegar por la página web y acceder a los distintos proyectos de diseño gráfico-->
+    <!--Contenido de menú de navegación-->
+    <div class="Header">
+        <!--Icono para que aparezca el menú al hacerse responsive-->
+        <a class="Header-icon" href="#" title="Click to go to the menu"><svg class="Header-svg"
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg></a>
+        <nav class="Header-nav">
+            <ul class="Header-ul">
+                <!--Icono para que puedan cerrar el menú al hacerse responsive-->
+                <li class="Header-li"><a href="#" class="Header-linkclose" title="Click to close de menu"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="Header-close" width="16" height="16"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                        </svg></a><a href="projectfestivalneon.html" class="Header-a Header-a--one"
+                        title="Click to go to the project">Festival Neon</a></li>
+                <li class="Header-li"><a href="projectdamian.html" class="Header-a Header-a--two"
+                        title="Click to go to the project">Damián Castagna</a></li>
+                <li class="Header-li"><a href="projectrecipes.html" class="Header-a Header-a--three"
+                        title="Click to go to the project">100 Recipes</a></li>
+                <li class="Header-li"><a href="projecthubclub.html" class="Header-a Header-a--four"
+                        title="Click to go to the project">Hubclub</a></li>
+                <li class="Header-li"><a href="projectclon.html" class="Header-a Header-a--five"
+                        title="Click to go to the project">Clon</a></li>
+                <li class="Header-li"><a href="projectannatkins.html" class="Header-a Header-a--six"
+                        title="Click to go to the project">Anna Atkins</a></li>
+                <li class="Header-li"><a href="projectcaoveg.html" class="Header-a Header-a--seven"
+                        title="Click to go to the project">Caoveg</a></li>
+                <li class="Header-li"><a href="projectsakoiro.html" class="Header-a Header-a--eight"
+                        title="Click to go to the project">Sakoiro</a></li>
+                <li class="Header-li"><a href="projectcookclon.html" class="Header-a Header-a--nine"
+                        title="Click to go to the project">Cookclon</a></li>
+                <li class="Header-li"><a href="#" class="Header-a Header-a--about"
+                        title="Click to find out about me">About</a></li>
+                <li class="Header-li"><a href="#" class="Header-a Header-a--contact"
+                        title="Click here to contact me">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!--Acaba el menú de navegación-->
+    <!--
+    Contenido principal
+    El Main o contenido principal agrupará lo más importante de la página-->
+    <!--Contenido principal-->
+    <main class="Main">
+        <!--
+    Sección Header
+    Dentro del header el usuario podrá visualizar mi logo, el nombre del proyecto, la explicación del proyecto, en qué año se realizó y el tipo de diseño gráfico que es.-->
+        <!--Contenido del Header-->
+        <header class="Section-hero Hero">
+            <div class="Hero-logo">
+                <a class="Hero-a" href="index.html" title="click to go to the main page"><img class="Hero-img" id="up"
+                        src="assets/logo.svg" alt="principal logo" title="Principal logo"></a>
+                <h1 class="Hero-h1">KrolStudio</h1>
+            </div>
+            <div class="Hero-info">
+                <h2 class="Hero-h2">Damián Castagna</h2>
+                <h4 class="Hero-h4">For the care of your horses, wellness for everybody</h4>
+                <!--Se repiten las categorías h3 pero con diferente especificación ya que al hacerse responsive la web, las cambio de sitio y de esta forma era mucho más eficiente.-->
+                <h3 class="Hero-h3 Hero-h3--responsive">2023</h3>
+                <h3 class="Hero-h3 Hero-h3--responsive">Brand Design</h3>
+                <p class="Hero-p">Damián Castagna was born out of a passion for the care and conservation of Polo
+                    horses. From Argentina, they travel the world with headquarters in the south of Spain, Cadiz. They
+                    stand out for being a reliable brand, where the diligence with which they treat the horses and the
+                    products used on them are first class.
+                    The owner asked me to develop their graphic identity, wanting it to adapt to different surfaces used
+                    in their daily life.
+                    Considering his main activity as a farrier and then, later on, maintenance and transport of the
+                    animals, it was clear to me that the brand needed to have a strong impact. Evoking a relationship
+                    between the strength of the work and the heat of the field, without losing the elegance of the sport
+                    was the main objective.
+                    I decided to rely on the Fraunces typeface, inspired by early 20th century typefaces such as
+                    Windsor, Souvenir and Cooper, Fraunces plays with a heavy ink but combines it with a very
+                    distinctive Art Nouveau influenced italic. With this union I achieve that the logo where the name is
+                    reflected has both refinement and a contemporary look.
+                    The beginning of the name will be accompanied by the logotype, where we can see a D for Damián
+                    Castagno, a horseshoe and the stick of the Polo sport. With this combination we wanted to give
+                    fluidity to the image so that it would not be visually heavy and he could play with it when placing
+                    this badge in other places.
+                </p>
+            </div>
+            <h3 class="Hero-h3 Hero-h3--mobile">2023</h3>
+            <h3 class="Hero-h3 Hero-h3--mobile">Brand Design</h3>
+        </header>
+        <!--Acaba el Header-->
+        <!--
+    Sección About y contact
+    Dentro de la sección About y Contact, nos encontramos con el apartado about me, que contiene tanto el botón de cerrar como el texto.
+    Y por otro lado el apartado contact, que es igual al de About pero he añadido también un formulario para que puedan insertar su correo y puedan ponerse en contacto conmigo de forma más rápida.-->
+        <!--Contenido de la sección About y contact-->
+        <div class="Section-aboutcontact">
+            <div class="Section-info Info">
+                <div class="Info-about About">
+                    <div class="About-wrapper">
+                        <p class="About-p">
+                            Krolstudio is a design studio based in Spain.
+                        </p>
+                        <p class="About-p">
+                            Composed by one person, Carolina Mateos is interested in working in different fields such as
+                            web design, photography or graphic design. Having a great experience in different
+                            environments, we manage to bring a unique vision to all the projects we work on.
+                        </p>
+                    </div>
+                    <p class="About-close"><button type="button" class="About-a" title="Click to close">CLOSE</button>
+                    </p>
+                </div>
+            </div>
+            <div class="Section-contact Info">
+                <div class="Info-after">
+                    <div class="Info-contact">
+                        <p class="Info-p">
+                            Whether you have a question, want to collaborate on a project or commission a job,
+                            KrolStudio is at your disposal. We are here to help by offering branding, web design,
+                            editorial and photography services. Do not hesitate to contact us.
+                        </p>
+                        <form class="Info-form" action="#" method="get">
+                            <label for="email"></label>
+                            <div class="Info-wrapper">
+                                <input class="Info-email" type="email" placeholder="Your e-mail" name="email"
+                                    id="email">
+                                <button type="submit" class="Info-a" title="Click here to send"><svg class="Info-svg"
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+                                    </svg></button>
+                            </div>
+                        </form>
+                    </div>
+                    <p class="Info-close"><button type="button" class="About-a" title="Click to close">CLOSE</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--Acaba la sección About y contact-->
+        <!--
+    Sección botones
+    Dentro de este div simple, nos encontramos con dos enlaces que nos llevarán a la parte de arriba de la página y la parte abajo en formato botones.-->
+        <!--Contenido de los botones-->
+        <div class="Section-button">
+            <a href="#up" class="Button-a Button-a--header" title="Click to scroll up"></a>
+            <a href="#down" class="Button-a Button-a--footer" title="Click to scroll down"></a>
+        </div>
+        <!-- Acaban los botones-->
+        <!--
+    Sección Damián Castagna
+    En este proyecto, podremos ver, dos videos, vuatro imágenes mockup y otras cuatro imágenes del merchandising de la marca.-->
+        <!--Contenido de la sección Damián Castagna-->
+        <div class="Section-damian Damian">
+            <!--Un video de la marca sin sonido en loop-->
+            <div class="Damian-gif">
+                <video class="Damian-video" autoplay muted loop playsinline>
+                    <source src="assets/damian/animation.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!--Dos de las imágenes en un wrapper-->
+            <div class="Damian-wrapper">
+                <picture class="Damian-img">
+                    <source srcset="assets/damian/conceptual-two-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/damian/conceptual-two-tablet.webp" media="(max-width: 768px)">
+                    <img class="Damian-img" src="assets/damian/conceptual-two-computer.webp"
+                        alt="Conceptual-white-image-logo" title="Conceptual white image logo" loading="lazy">
+                </picture>
+                <picture class="Damian-img">
+                    <source srcset="assets/damian/conceptual-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/damian/conceptual-tablet.webp" media="(max-width: 768px)">
+                    <img class="Damian-img" src="assets/damian/conceptual-computer.webp" alt="Conceptual-red-image-logo"
+                        title="Conceptual red image logo" loading="lazy">
+                </picture>
+            </div>
+            <!--Cuatro imágenes colocadas en un grid del merchandising de la marca.-->
+            <div class="Damian-animation Drag">
+                <picture class="Drag-img Drag-img--tag">
+                    <source srcset="assets/damian/mockup-tag-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/damian/mockup-tag-tablet.webp" media="(max-width: 768px)">
+                    <img class="Drag-img Drag-img--tag" src="assets/damian/mockup-tag-computer.webp"
+                        alt="Mockup-clothes-images" title="Mockup clothes images" loading="lazy">
+                </picture>
+                <picture class="Drag-img Drag-img--front">
+                    <source srcset="assets/damian/mockup-front-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/damian/mockup-front-tablet.webp" media="(max-width: 768px)">
+                    <img class="Drag-img Drag-img--front" src="assets/damian/mockup-front-computer.webp"
+                        alt="Mockup-clothes-images" title="Mockup clothes images" loading="lazy">
+                </picture>
+                <picture class="Drag-img Drag-img--back">
+                    <source srcset="assets/damian/mockup-back-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/damian/mockup-back-tablet.webp" media="(max-width: 768px)">
+                    <img class="Drag-img Drag-img--back" src="assets/damian/mockup-back-computer.webp"
+                        alt="Mockup-clothes-images" title="Mockup clothes images" loading="lazy">
+                </picture>
+                <picture class="Drag-img Drag-img--cap">
+                    <source srcset="assets/damian/mockup-cap-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/damian/mockup-cap-tablet.webp" media="(max-width: 768px)">
+                    <img class="Drag-img Drag-img--cap" src="assets/damian/mockup-cap-computer.webp"
+                        alt="Mockup-clothes-images" title="Mockup clothes images" loading="lazy">
+                </picture>
+            </div>
+            <!--Otro video de la marca sin sonido en loop-->
+            <div class="Damian-gif">
+                <video class="Damian-video" autoplay muted loop playsinline>
+                    <source src="assets/damian/animation-two.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!--Dos de las imágenes en un wrapper-->
+            <div class="Damian-wrapper">
+                <picture class="Damian-img">
+                    <source srcset="assets/damian/mockup-two-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/damian/mockup-two-tablet.webp" media="(max-width: 768px)">
+                    <img class="Damian-img" src="assets/damian/mockup-two-computer.webp" alt="mockup-horseshoe"
+                        title="mockup horseshoe" loading="lazy">
+                </picture>
+                <picture class="Damian-img">
+                    <source srcset="assets/damian/mockup-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/damian/mockup-tablet.webp" media="(max-width: 768px)">
+                    <img class="Damian-img" src="assets/damian/mockup-computer.webp" alt="mockup-horse"
+                        title="mockup horse" loading="lazy">
+                </picture>
+            </div>
+        </div>
+        <!--Acaba la sección Damián Castagna-->
+    </main>
+    <!--Acaba el contenido principal-->
+    <!--
+    Sección footer o pie de página
+    En el footer o pie de página, coloco mis redes sociales para que puedan ver otros de mis trabajos o contactarme también por ahí, con un mensaje que les anima a hablarme si están interesados.-->
+    <!--Contenido del footer-->
+    <footer class="Footer" id="down">
+        <div class="Footer-container">
+            <h3 class="Footer-h3">If you would like to collaborate with me, please check out my socials or my contact!
+            </h3>
+            <h3 class="Footer-h3"><a href="https://www.instagram.com/krolmateos/" class="Footer-a" target="_blank"
+                    rel="noreferrer" title="Click to go to my instagram">Instagram:@krolmateos</a></h3>
+            <h3 class="Footer-h3"><a href="https://www.facebook.com/profile.php?id=61561849897868" class="Footer-a"
+                    target="_blank" rel="noreferrer" title="Click to go to my facebook">Facebook:@krolmateos</a></h3>
+            <h3 class="Footer-h3"><a href="https://github.com/CarolinaMateos-hub" class="Footer-a" target="_blank"
+                    rel="noreferrer" title="Click to go to my github">Github:@krolmateos</a></h3>
+        </div>
+    </footer>
+    <!--Acaba el footer-->
+</body>
+
+</html>

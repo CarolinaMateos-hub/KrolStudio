@@ -1,0 +1,254 @@
+<!--
+Descripción: En este archivo HTML te encontrarás con la página del proyecto Anna Atkins.
+Estructura general:
+- Animación del cursor
+- Menú de navegación
+- Main / Contenido principal
+- Footer / Pie de página
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 recipes</title>
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="js/projectrecipes.js" defer></script>
+    <!--Grupo de links para que mi web tenga el logo en la pestaña al abrirlo en google-->
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+</head>
+
+<body>
+    <!--
+    Animación del cursor
+    Un simple div necesario, para más tarde en CSS y Javascript animarlo. -->
+    <div class="Cursor"></div>
+    <!--
+    Menú de navegación
+    El menú de navegación permitirá al usuario navegar por la página web y acceder a los distintos proyectos de diseño gráfico-->
+    <!--Contenido de menú de navegación-->
+    <div class="Header">
+        <!--Icono para que aparezca el menú al hacerse responsive-->
+
+        <a class="Header-icon" href="#" title="Click to go to the menu"><svg class="Header-svg"
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg></a>
+        <nav class="Header-nav">
+            <ul class="Header-ul">
+                <!--Icono para que puedan cerrar el menú al hacerse responsive-->
+
+                <li class="Header-li"><a href="#" class="Header-linkclose" title="Click to close de menu"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="Header-close" width="16" height="16"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                        </svg></a><a href="projectfestivalneon.html" class="Header-a Header-a--one"
+                        title="Click to go to the project">Festival Neon</a></li>
+                <li class="Header-li"><a href="projectdamian.html" class="Header-a Header-a--two"
+                        title="Click to go to the project">Damián Castagna</a></li>
+                <li class="Header-li"><a href="projectrecipes.html" class="Header-a Header-a--three"
+                        title="Click to go to the project">100 Recipes</a></li>
+                <li class="Header-li"><a href="projecthubclub.html" class="Header-a Header-a--four"
+                        title="Click to go to the project">Hubclub</a></li>
+                <li class="Header-li"><a href="projectclon.html" class="Header-a Header-a--five"
+                        title="Click to go to the project">Clon</a></li>
+                <li class="Header-li"><a href="projectannatkins.html" class="Header-a Header-a--six"
+                        title="Click to go to the project">Anna Atkins</a></li>
+                <li class="Header-li"><a href="projectcaoveg.html" class="Header-a Header-a--seven"
+                        title="Click to go to the project">Caoveg</a></li>
+                <li class="Header-li"><a href="projectsakoiro.html" class="Header-a Header-a--eight"
+                        title="Click to go to the project">Sakoiro</a></li>
+                <li class="Header-li"><a href="projectcookclon.html" class="Header-a Header-a--nine"
+                        title="Click to go to the project">Cookclon</a></li>
+                <li class="Header-li"><a href="#" class="Header-a Header-a--about"
+                        title="Click to find out about me">About</a></li>
+                <li class="Header-li"><a href="#" class="Header-a Header-a--contact"
+                        title="Click here to contact me">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!--Acaba el menú de navegación-->
+    <!--
+    Contenido principal
+    El Main o contenido principal agrupará lo más importante de la página-->
+    <!--Contenido principal-->
+    <main class="Main">
+        <!--
+    Sección Header
+    Dentro del header el usuario podrá visualizar mi logo, el nombre del proyecto, la explicación del proyecto, en qué año se realizó y el tipo de diseño gráfico que es.-->
+        <!--Contenido del Header-->
+        <header class="Section-hero Hero">
+            <div class="Hero-logo">
+                <a class="Hero-a" href="index.html" title="click to go to the main page"><img class="Hero-img" id="up"
+                        src="assets/logo.svg" alt="principal-logo" title="Principal logo"></a>
+                <h1 class="Hero-h1">KrolStudio</h1>
+            </div>
+            <div class="Hero-info">
+                <h2 class="Hero-h2">100 Recipes for children</h2>
+                <h3 class="Hero-h3 Hero-h3--responsive">2024</h3>
+                <h3 class="Hero-h3 Hero-h3--responsive">Editorial Design</h3>
+                <p class="Hero-p">The cover of the book "100 Cooking Recipes for Children" had to be attractive, fun and
+                    educational, capturing the interest of the little ones from the first glance. To achieve this, it
+                    was decided to use a repeated sequence of hand-drawn foods, presented in a simple and colorful way.
+                    These hand-drawn illustrations have a friendly and accessible style, with simple lines and bright
+                    colors that appeal to children.
+                    Each food is drawn simply, with just enough detail to be recognizable but not overwhelming. The
+                    hand-drawn pictures add a personal, handcrafted touch, making children feel more connected to the
+                    images. The use of bright colors and contrasts makes each food stand out and easy to identify.
+                    The title of the book is prominently placed at the top of the cover, using a playful, rounded
+                    typography that complements the illustrations. The text is large and clear, ensuring that it is easy
+                    to read for children and their parents. The arrangement of text and images is balanced, creating a
+                    harmonious and attractive composition.
+                    The design is a colorful and friendly invitation to explore the world of cooking, designed to
+                    capture the attention and imagination of children, making the experience of learning to cook fun and
+                    exciting.
+                </p>
+            </div>
+            <h3 class="Hero-h3 Hero-h3--mobile">2024</h3>
+            <h3 class="Hero-h3 Hero-h3--mobile">Editorial Design</h3>
+        </header>
+        <!--Acaba el Header-->
+        <!--
+    Sección About y contact
+    Dentro de la sección About y Contact, nos encontramos con el apartado about me, que contiene tanto el botón de cerrar como el texto.
+    Y por otro lado el apartado contact, que es igual al de About pero he añadido también un formulario para que puedan insertar su correo y puedan ponerse en contacto conmigo de forma más rápida.-->
+        <!--Contenido de la sección About y contact-->
+        <div class="Section-aboutcontact">
+            <div class="Section-info Info">
+                <div class="Info-about About">
+                    <div class="About-wrapper">
+                        <p class="About-p">
+                            Krolstudio is a design studio based in Spain.
+                        </p>
+                        <p class="About-p">
+                            Composed by one person, Carolina Mateos is interested in working in different fields such as
+                            web design, photography or graphic design. Having a great experience in different
+                            environments, we manage to bring a unique vision to all the projects we work on.
+                        </p>
+                    </div>
+                    <p class="About-close"><button type="button" class="About-a" title="Click to close">CLOSE</button>
+                    </p>
+                </div>
+            </div>
+            <div class="Section-contact Info">
+                <div class="Info-after">
+                    <div class="Info-contact">
+                        <p class="Info-p">
+                            Whether you have a question, want to collaborate on a project or commission a job,
+                            KrolStudio is at your disposal. We are here to help by offering branding, web design,
+                            editorial and photography services. Do not hesitate to contact us.
+                        </p>
+                        <form class="Info-form" action="#" method="get">
+                            <label for="email"></label>
+                            <div class="Info-wrapper">
+                                <input class="Info-email" type="email" placeholder="Your e-mail" name="email"
+                                    id="email">
+                                <button type="submit" class="Info-a" title="Click here to send"><svg class="Info-svg"
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+                                    </svg></button>
+                            </div>
+                        </form>
+                    </div>
+                    <p class="Info-close"><button type="button" class="About-a" title="Click to close">CLOSE</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--Acaba la sección About y contact-->
+        <!--
+    Sección botones
+    Dentro de este div simple, nos encontramos con dos enlaces que nos llevarán a la parte de arriba de la página y la parte abajo en formato botones.-->
+        <!--Contenido de los botones-->
+        <div class="Section-button">
+            <a href="#up" class="Button-a Button-a--header" title="Click to scroll up"></a>
+            <a href="#down" class="Button-a Button-a--footer" title="Click to scroll down"></a>
+        </div>
+        <!-- Acaban los botones-->
+        <!--
+    Sección Recipes
+    El proyecto recipes, al igual que el de festival de neon, se compone de pocas imágenes, en este caso, veremos siete imágenes colocadas en un grid.-->
+        <!--Contenido de la sección Recipes-->
+        <div class="Section-recipes Recipes">
+            <div class="Recipes-grid">
+                <picture class="Recipes-img Recipes-img--cover">
+                    <source srcset="assets/hundredrecipes/cover-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/hundredrecipes/cover-tablet.webp" media="(max-width: 768px)">
+                    <img class="Recipes-project" src="assets/hundredrecipes/cover-computer.webp"
+                        alt="cover-book-recipes" title="Cover recipes book">
+                </picture>
+                <picture class="Recipes-img Recipes-img--backcover">
+                    <source srcset="assets/hundredrecipes/coverback-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/hundredrecipes/coverback-tablet.webp" media="(max-width: 768px)">
+                    <img class="Recipes-project" src="assets/hundredrecipes/coverback-computer.webp"
+                        alt="coverback-book-recipes" title="Coverback recipes book">
+                </picture>
+                <picture class="Recipes-img Recipes-img--animation">
+                    <source srcset="assets/hundredrecipes/book-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/hundredrecipes/book-tablet.webp" media="(max-width: 768px)">
+                    <img class="Recipes-project" src="assets/hundredrecipes/book-computer.webp"
+                        alt="Animation-cover-book-recipes" title="Cover recipes book spinning" loading="lazy">
+                </picture>
+                <picture class="Recipes-img Recipes-img--analisisone">
+                    <source srcset="assets/hundredrecipes/mockup-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/hundredrecipes/mockup-tablet.webp" media="(max-width: 768px)">
+                    <img class="Recipes-project" src="assets/hundredrecipes/mockup-computer.webp"
+                        alt="Analisis-book-recipes" title="Analisis recipes book" loading="lazy">
+                </picture>
+                <picture class="Recipes-img Recipes-img--analisistwo">
+                    <source srcset="assets/hundredrecipes/mockup-two-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/hundredrecipes/mockup-two-tablet.webp" media="(max-width: 768px)">
+                    <img class="Recipes-project" src="assets/hundredrecipes/mockup-two-computer.webp"
+                        alt="Analisis-book-recipes" title="Analisis recipes book" loading="lazy">
+                </picture>
+                <picture class="Recipes-img Recipes-img--analisisthree">
+                    <source srcset="assets/hundredrecipes/mockup-three-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/hundredrecipes/mockup-three-tablet.webp" media="(max-width: 768px)">
+                    <img class="Recipes-project" src="assets/hundredrecipes/mockup-three-computer.webp"
+                        alt="Analisis-book-recipes" title="Analisis recipes book" loading="lazy">
+                </picture>
+                <picture class="Recipes-img Recipes-img--analisisfour">
+                    <source srcset="assets/hundredrecipes/mockup-four-mobile.webp" media="(max-width: 480px)">
+                    <source srcset="assets/hundredrecipes/mockup-four-tablet.webp" media="(max-width: 768px)">
+                    <img class="Recipes-project" src="assets/hundredrecipes/mockup-four-computer.webp"
+                        alt="Analisis-book-recipes" title="Analisis recipes book" loading="lazy">
+                </picture>
+            </div>
+        </div>
+        <!--Acaba la sección Recipes-->
+    </main>
+    <!--Acaba el contenido principal-->
+    <!--
+    Sección footer o pie de página
+    En el footer o pie de página, coloco mis redes sociales para que puedan ver otros de mis trabajos o contactarme también por ahí, con un mensaje que les anima a hablarme si están interesados.-->
+    <!--Contenido del footer-->
+    <footer class="Footer" id="down">
+        <div class="Footer-container">
+            <h3 class="Footer-h3">If you would like to collaborate with me, please check out my socials or my contact!
+            </h3>
+            <h3 class="Footer-h3"><a href="https://www.instagram.com/krolmateos/" class="Footer-a" target="_blank"
+                    rel="noreferrer" title="Click to go to my instagram">Instagram:@krolmateos</a></h3>
+            <h3 class="Footer-h3"><a href="https://www.facebook.com/profile.php?id=61561849897868" class="Footer-a"
+                    target="_blank" rel="noreferrer" title="Click to go to my facebook">Facebook:@krolmateos</a></h3>
+            <h3 class="Footer-h3"><a href="https://github.com/CarolinaMateos-hub" class="Footer-a" target="_blank"
+                    rel="noreferrer" title="Click to go to my github">Github:@krolmateos</a></h3>
+        </div>
+    </footer>
+    <!--Acaba el footer-->
+</body>
+
+</html>

@@ -1,0 +1,862 @@
+/*
+- Reset
+- Variables
+- Animación principal
+- Menú navegación
+- Main
+- Footer
+*/
+*{
+	margin: 0;
+	border: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+li{
+	list-style: none;
+}
+a{
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+p a{
+	display: inline;
+}
+html{
+	scroll-behavior: smooth;
+}
+img, svg{
+	display: block;
+	width: 100%;
+	height: inherit;
+}
+svg{
+	fill: currentColor;
+}
+body{
+	height: 100vh;
+	background-color: white;
+	background-image: 
+	  linear-gradient(to right, black 1px, transparent 1px),
+	  linear-gradient(to bottom, black 1px, transparent 1px);
+	background-size: 1.25em 1.25em;
+
+	hyphens: auto;
+	font-family: "Raleway", serif;
+}
+h1, h2, h3, h4, h5, h6{
+	font-size: inherit;
+	font-weight: inherit;
+}
+form, input, button, label, select, textarea{
+	font-family: inherit;
+	font-size: inherit;
+ 	background-color: transparent;
+	display: block;
+}
+input{
+	accent-color: red;
+}
+:root {
+	/* Dimensiones para margin, padding, gap, etc. */
+	--size-extrasmall: .3125em;
+    --size-small: .625em;
+    --size-medium: 1.25em; 
+    --size-large: 2.5em;  
+	--size-extralarge: 5em;          
+    --size-full: 100%;  
+	--minheight-full: 100vh;  
+	
+	/* Grosor para las tipografías */
+	--weight-sm: 400;
+	--weight-md: 500;
+
+    /* Color principal de la marca */
+    --color-primary: #8a2400;
+	/* Color secundario para detalles de la web */
+    --color-secondary: #d1564e;
+
+    /* Ancho de los bordes */
+	--border-width: 1px;
+	/* Color de los bordes */
+	--border-color: black;
+	/* Radio para los botones */
+	--border-radius-circle: 50%;
+	/* Transiciones */
+	--transition-default: all 0.5s ease;
+}
+/*Cursor
+Estilos para crear la animación de que un cuadrado siga al cursor*/
+.Cursor{
+    width: 1em;
+    min-height: 1em;
+    border: 2px solid var(--color-secondary);
+	box-shadow: 2px 3px 3px var(--color-secondary);
+    position: fixed;
+    top: -1rem;
+    left: -1rem;
+    pointer-events: none;
+
+    transition: all 0.5s linear;
+	z-index: 6;
+}
+@media (max-width: 1000px){
+	.Cursor{
+		display: none;
+	}
+}
+/*Cursor*/
+/*Cover
+Estilos para crear la animación principal al entrar a la página web.
+Estructura:
+	- Cover
+	- Cover-wrapper
+	- Cover-svg
+*/
+.Cover{
+    width: var(--size-full);
+	min-height: var(--minheight-full);
+	background-color: white;
+
+    position: absolute;
+    z-index: 6;
+    animation: coveropacity 1s linear 1.7s both;
+	pointer-events: none;
+}
+@keyframes coveropacity{
+    from{
+        opacity: 100%;
+    } 
+    to{
+        opacity: 0%;
+    }
+}
+.Cover-wrapper{
+    width: 80%;
+    min-height: var(--minheight-full);
+    margin: auto;
+	pointer-events: none;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    animation: wrappersize 0.8s ease 0s both;
+}
+@keyframes wrappersize{
+    0%{
+		transform: rotate(0deg);
+        scale: 15;
+		opacity: 0%;
+    }
+    100%{
+		transform: rotate(720deg);
+        scale: 1;
+		opacity: 100%;
+    }
+}
+.Cover-svg{
+    width: 12.5em;
+    animation: svgsize 1s ease 1s both;
+}
+@keyframes svgsize{
+    0%{
+		scale: 1;
+    } 
+	25%{
+		scale: 2.1;
+	}
+    100%{
+		scale: 0;
+    }
+}
+/*Cover*/
+/*Section-header
+Aunque se llame header, esta sección de estilos es para el menú de navegación.
+Estructura:
+	- Header
+	- Header-svg (icono para el responsive)
+	- Header-nav
+	- Header-a
+	- Header-close (icono para cerrar el menu y volver al icono del responsive)
+*/
+.Header{
+	background-color: white;
+	animation: headermove 2s ease 1.9s both;
+	border: var(--border-width) solid var(--border-color);
+
+	width: 10%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+@keyframes headermove {
+	0% {
+		transform: translate(-10em);
+	}
+	100% {
+		transform: translate(0em);
+	}
+}
+@media (max-width: 1100px){
+	/*Importante para cuando aparezca el menú de navegación, quede por encima del main en responsive*/
+	.Header{
+		z-index: 2;
+	}
+}
+.Header-svg{
+	display: none;
+}
+@media (max-width: 1100px){
+
+	.Header-svg{
+		display: block;
+		width: 15vw;
+		max-width: 5.625em;
+		background-color: white;
+		padding: var(--size-medium);
+		margin: var(--size-extrasmall);
+		border-radius: var(--border-radius-circle);
+		border: var(--border-width) solid var(--border-color);
+		animation: headermove 2s ease 1.9s both;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
+}
+.Header-nav{
+	width: var(--size-full);
+	min-height: var(--minheight-full);
+	padding: var(--size-medium);
+}
+@media (max-width: 1100px){
+	.Header-nav{
+		display: none;
+	}
+}
+.Header-a{
+	width: var(--size-full);
+	min-height: 8.9vh;
+	text-align: center;
+	font-weight: 300;
+	border-bottom: var(--border-width) solid var(--border-color);
+
+	transition: var(--transition-default);
+}
+/*Transicion y hover para que cada vez que el cursor se coloque encima de los titulos en el menú de navegación cambien de color*/
+.Header-a:hover{
+	color: var(--color-primary);
+	font-weight: 600;
+}
+@media (max-width: 1000px){
+	.Header-a:hover{
+		color: initial;
+		font-weight: initial;
+	}
+}
+.Header-close{
+	width: 1.875em;
+	margin: var(--size-small);
+	color: var(--color-primary);
+
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	display: none;
+}
+/*Header*/
+/*Main
+Contenido principal donde iran las imágenes, información personal y los apartados de about me y contact.
+Estructura:
+	- Header
+	- Section-aboutcontact
+	- Section-button
+	- Section-grid
+*/
+.Main{
+	margin-left: 10%;
+}
+@media (max-width: 1100px){
+	.Main{
+		margin-left: 0%;
+	}
+}
+/*Header (Section-hero)
+Estilos para la sección principal, el header.
+Estructura:
+	- Section-hero
+	- Hero-logo 
+	- Hero-img (dentro de logo)
+	- Hero-h1 (nombre de la web)
+	- Hero-info (profesión)
+	- Hero-wrapper (nombre completo, nombre redes sociales, dónde resido)
+	- Hero-h2--mobile (responsive para cambiar de lugar la información)
+*/
+.Section-hero{
+	width: var(--size-full);
+	background-color: white;
+
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: start;
+	align-items: start;
+
+	border-bottom: var(--border-width) solid var(--border-color);
+}
+@media (max-width: 1100px){
+	.Section-hero{
+		width: var(--size-full);
+	}
+}
+.Hero-logo{
+	width: var(--size-full);
+	padding-top: var(--size-small);
+	padding-bottom: var(--size-small);
+	margin: auto;
+
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+@media (max-width: 900px){
+    .Hero-logo{
+		padding-top: var(--size-large);
+	}
+}
+.Hero-img{
+	width: 10vw;
+	animation: spin 4s linear infinite; 
+	/*Este tipo de transform-style poco usual lo usé para crear la animación de que mi logo de vueltas constantemente en 3D*/
+    transform-style: preserve-3d;
+	transition: var(--transition-default);
+}
+@media  (max-width: 700px){
+	.Hero-img{
+		width: 14vw;
+	}
+}
+@keyframes spin {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+.Hero-h1{
+	font-size: 2.2em;
+	font-weight: 700;
+	color: var(--color-primary);
+}
+@media (max-width: 900px){
+    .Hero-h1{
+        font-size: 1.8em;
+    }
+}
+@media (max-width: 700px){
+    .Hero-h1{
+        font-size: 1.5em;
+    }
+}
+.Hero-info{
+	width: var(--size-full);
+	padding: 1em 2em;
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	font-weight: var(--weight-sm);
+
+	animation: heromove 2s ease 1.9 both;
+}
+@keyframes heromove{
+	0%{
+		transform: translate(100px);
+	}
+	100%{
+		transform: translate(0em);
+	}
+}
+@media (max-width: 1100px){
+	.Hero-info{
+		width: var(--size-full);
+		flex-flow: column nowrap;
+		justify-content: center;
+		animation: none;
+	}
+}
+.Hero-wrapper{
+	width: 55%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+@media (max-width: 1100px){
+	.Hero-wrapper{
+		width: var(--size-full);
+		margin-top: var(--size-small);
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--size-medium);
+	}
+}
+@media (max-width: 700px){
+	.Hero-wrapper{
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		gap: var(--size-small);
+	}
+}
+@media (max-width: 700px){
+	.Hero-h2--mobile{
+		display: none;
+	}
+}
+/*Header (Section-hero)*/
+/*Section-aboutcontact
+Estilos para los apartados o secciones de About me y Contact.
+Estructura: 
+	- Section-aboutcontact
+	- Section-info (Agrupa el apartado About me)
+	- Info-about
+	- About-p (Información sobre mí)
+	- About-close (Botón para cerrar el apartado)
+	
+	- Section-contact (Agrupa el apartado Contact)
+	- Info-after
+	- Info-p (Información para contactarme)
+	- Info-wrapper (Agrupa el formulario de contacto)
+	- Info-email (El lugar donde poner el email)
+	- Info-svg (Imagen como botón que acompaña el email)
+	- Info-close (Botón para cerrar el apartado)
+*/
+.Section-aboutcontact{
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 5;
+	pointer-events: none;
+}
+.Section-info{
+	width: 90%;
+	margin-left: 10%;
+	background-color: white;
+	padding: var(--size-large);
+	border: var(--border-width) solid var(--border-color);
+	opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+@media (max-width: 1100px){
+    .Section-info{
+        width: var(--size-full);
+        margin-left: 0%;
+    }
+}
+/*Quería añadir un pequeño detalle en el apartado para estilizarlo más, así que use el ::after para crear una línea por debajo*/
+.Section-info::after{
+	content: "";
+	display: block;
+	width: var(--size-full);
+	min-height: var(--size-medium);
+	margin: var(--size-medium) auto;
+	background: linear-gradient(
+		#aa4237, #c24e42, #ce523f, #ab4338, 
+		#dd5944, #ca4d33, #ab4338, #cb503e, 
+		#d95641);
+}
+.Info-about{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: start;
+	gap: var(--size-small);
+}
+.About-p{
+	hyphens: none;
+	font-size: 2.6vw;
+	font-weight: var(--weight-sm);
+	color: rgb(98, 98, 98);
+}
+.About-close{
+	font-size: 1.5vw;
+	font-weight: var(--weight-md);
+	color: grey;
+	text-decoration: underline;
+
+	transition: all 0.3s ease;
+}
+.About-close:hover{
+	text-decoration: none;
+}
+
+
+.Section-contact{
+	width: 90%;
+	margin-left: 10%;
+	background-color: white;
+	padding: var(--size-large);
+	border: var(--border-width) solid var(--border-color);
+	
+	opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+@media (max-width: 1100px){
+    .Section-contact{
+        width: var(--size-full);
+        margin-left: 0%;
+    }
+}
+/*Quería añadir un pequeño detalle en el apartado para estilizarlo más, así que use el ::after para crear una línea por debajo*/
+.Section-contact::after{
+	content: "";
+	display: block;
+	width: var(--size-full);
+	min-height: var(--size-medium);
+	margin: var(--size-large) auto;
+	background: linear-gradient(
+		#aa4237, #c24e42, #ce523f, #ab4338, 
+		#dd5944, #ca4d33, #ab4338, #cb503e, 
+		#d95641);
+}
+.Info-after{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: start;
+	gap: var(--size-medium);
+}
+.Info-p{
+	hyphens: none;
+	font-size: 2.7vw;
+	font-weight: var(--weight-sm);
+	color: rgb(98, 98, 98);
+}
+.Info-wrapper{
+	padding-top: var(--size-large);
+	border-bottom: var(--border-width) solid grey;
+
+	display: flex;
+	flex-flow: row-reverse nowrap;
+	justify-content: start;
+	align-items: start;
+	gap: var(--size-small);
+}
+.Info-email{
+	width: var(--size-full);
+	font-size: .9em;
+	color: grey;
+}
+.Info-svg{
+	width: 1.5em;
+	color: grey;
+}
+.Info-close{
+	font-size: 1.5vw;
+	font-weight: var(--weight-md);
+	color: grey;
+	text-decoration: underline;
+
+	transition: all 0.3s ease;
+}
+.Info-close:hover{
+	text-decoration: none;
+}
+/*Section-aboutcontact*/
+/*Section-button
+Estilo para crear los botones que permiten navegar hacia el inicio y final de la página.
+Estructura:
+	- Button-a--header
+	- Button-a--footer
+*/
+.Button-a--header{
+	width:1.875em;
+	min-height: 1.875em;
+	/*Un gradiante cónico para que de la senación de un botón metálico*/
+	background: conic-gradient(
+		#d95641, #b14439, #b2453a, #d25645, 
+		#d56847, #d05441, #b85137, #b2453a, 
+		#c34f40, #df4647, #a94338, #c94943, 
+		#c85442, #a4413c, #d9543a, #d1564e, 
+		#ab4338, #bb4a3c, #dc5843, #b94839, 
+		#aa4237, #c24e42, #ce523f, #ab4338, 
+		#dd5944, #ca4d33, #ab4338, #cb503e, 
+		#d95641);
+	margin: var(--size-small);
+	border-radius: var(--border-radius-circle);
+	position: fixed;
+	top: 36%;
+	left: 50%;
+	z-index: 4;
+
+	transition: all 0.2s ease;
+}
+@media (max-width: 900px){
+	.Button-a--header{
+		top: 30%;
+	}
+}
+/*Un hover para que cuando el cursor se coloque por encima, cambie de color y de entender al usuario que puede hacer click*/
+.Button-a--header:hover{
+	background: var(--color-primary);
+}
+@media (max-width: 1000px){
+	.Button-a--header:hover{
+		background: initial;
+		transition: none;
+	}
+}
+.Button-a--footer{
+	width: 1.875em;
+	min-height: 1.875em;
+	/*Un gradiante cónico para que de la senación de un botón metálico*/
+	background: conic-gradient(
+		#d95641, #b14439, #b2453a, #d25645, 
+		#d56847, #d05441, #b85137, #b2453a, 
+		#c34f40, #df4647, #a94338, #c94943, 
+		#c85442, #a4413c, #d9543a, #d1564e, 
+		#ab4338, #bb4a3c, #dc5843, #b94839, 
+		#aa4237, #c24e42, #ce523f, #ab4338, 
+		#dd5944, #ca4d33, #ab4338, #cb503e, 
+		#d95641);
+	margin: var(--size-small);
+	border-radius: var(--border-radius-circle);
+	position: fixed;
+	bottom: 5%;
+	left: 50%;
+	z-index: 4;
+
+	transition: all 0.2s ease;
+}
+@media (max-width: 900px){
+	.Button-a--footer{
+		bottom: 6%;
+	}
+}
+/*Un hover para que cuando el cursor se coloque por encima, cambie de color y de entender al usuario que puede hacer click*/
+.Button-a--footer:hover{
+	background: var(--color-primary);
+}
+@media (max-width: 1000px){
+	.Button-a--footer:hover{
+		background: initial;
+		transition: none;
+	}
+}
+/*Section-button*/
+/*Section-grid
+Estilos para organizar las imágenes que hay en el centro de la página.
+Estructura:  
+	- Grid-wrapper
+	- Grid-img
+	- Grid-img--one / ""--two / ""--three (Se va repitiendo hasta llegar a las nueve imágenes que hay)
+*/
+.Grid-wrapper{
+	width: var(--size-full);
+
+	display: grid;
+	grid-template-columns: repeat(4, 9fr);
+	justify-content: center;
+}
+@media (max-width: 1100px){
+	.Grid-wrapper{
+		grid-template-columns: repeat(3, 9fr);
+	}
+}
+.Grid-img{
+	width: var(--size-full);
+	height: 100%;
+	object-fit: cover;
+	border: var(--border-width) solid var(--border-color);
+
+	transition: var(--transition-default);
+}
+/*Especifico cada una, porque quería poner cada una en un sitio concreto para jugar con el estilo*/
+.Grid-img--one{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 3 / 4;
+	grid-row: 1 / 2;
+}
+.Grid-img--two{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 1 / 3;
+	grid-row: 2 / 3;
+}
+.Grid-img--three{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 4 / 5;
+	grid-row: 2 / 3;
+}
+.Grid-img--four{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+}
+.Grid-img--five{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 1 / 3;
+	grid-row: 4 / 5;
+}
+.Grid-img--six{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 4 / 5;
+	grid-row: 4 / 5;
+}
+.Grid-img--seven{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 3 / 4;
+	grid-row: 6 / 7;
+}
+.Grid-img--eight{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 1 / 2;
+	grid-row: 6 / 7;
+}
+.Grid-img--nine{
+	opacity: 90%;
+	filter: grayscale(100%);
+	grid-column: 2 / 3;
+	grid-row: 7 / 8;
+}
+@media (max-width: 1100px){
+	.Grid-img{
+		filter: grayscale(0%);
+	}
+	.Grid-img--one{
+		grid-column: 2 / 3;
+		grid-row: 1 / 2;
+	}
+	.Grid-img--two{
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+	}
+	.Grid-img--three{
+		grid-column: 3 / 4;
+		grid-row: 2 / 4;
+	}
+	.Grid-img--four{
+		grid-column: 2 / 3;
+		grid-row: 3 / 4;
+	}
+	.Grid-img--five{
+		grid-column: 1 / 2;
+		grid-row: 5 / 6;
+	}
+	.Grid-img--six{
+		grid-column: 3 / 4;
+		grid-row: 5 / 7;
+	}
+	.Grid-img--seven{
+		grid-column: 2 / 3;
+		grid-row: 7 / 8;
+	}
+	.Grid-img--eight{
+		grid-row: 8 / 9;
+	}
+	.Grid-img--nine{
+		grid-column: 3 / 4;
+		grid-row: 8 / 9;
+	}
+}
+@media (max-width: 700px){
+	.Grid-wrapper{
+		grid-template-columns: repeat(1, 9fr);
+		gap: var(--size-small);
+		padding: var(--size-small);
+	}
+	.Grid-img{
+		grid-column: 1 / 2;
+	}
+	.Grid-img--two{
+		grid-row: 2 / 3;
+	}
+	.Grid-img--three{
+		grid-row: 3 / 4;
+	}
+	.Grid-img--four{
+		grid-row: 4 / 5;
+	}
+	.Grid-img--five{
+		grid-row: 5 / 6;
+	}
+	.Grid-img--six{
+		grid-row: 6 / 7;
+	}
+	.Grid-img--seven{
+		grid-row: 7 / 8;
+	}
+	.Grid-img--eight{
+		grid-row: 8 / 9;
+	}
+	.Grid-img--nine{
+		grid-row: 9 / 10;
+	}
+}
+/*Section-grid*/
+/*Main*/
+
+/*Footer
+Estilos para crear el footer o pie de página.
+Estructura:
+	- Footer
+	- Footer-container (Agrupa la información que hay dentro)
+	- Footer-h3 (Información que anima a contactarme y enlaces que llevan a mi página web)*/
+.Footer{
+	width: var(--size-full);
+	background-color:  var(--color-primary);
+	padding: var(--size-medium) var(--size-small);
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	position: relative;
+	z-index: 3;
+
+	overflow: hidden;
+}
+.Footer-container{
+	display: flex;
+	white-space: nowrap;
+	animation: scrollfooter 15s linear infinite;
+	transition: all 0.3s ease;
+  }
+.Footer-h3{
+	font-weight: var(--weight-md);
+	margin-right: 2em;
+	color: white;
+}
+@keyframes scrollfooter{
+	from{
+		transform: translateX(100%);
+	}
+	to{
+		transform: translateX(-100%);
+	}
+}
+/*Importante este footer, porque al crear una animación donde la información está continuamente dado vueltas, si el usario quiere hacer click, con esta opción la animación se para y luego continúa donde lo ha dejado.*/
+.Footer-container:hover {
+	animation-play-state: paused;
+}

@@ -1,0 +1,1712 @@
+/*
+- Reset
+- Variables
+- Animación principal
+- Menú navegación
+- Main
+- Footer
+*/
+*{
+	margin: 0;
+	border: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+li{
+	list-style: none;
+}
+a{
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+p a{
+	display: inline;
+}
+html{
+	scroll-behavior: smooth;
+}
+img, svg{
+    display: block;
+    width: 100%;
+    height: inherit;
+}
+svg{
+	fill: currentColor;
+}
+body{
+    height: 100vh;
+	background-color: white;
+	background-image: 
+	  linear-gradient(to right, black 1px, transparent 1px),
+	  linear-gradient(to bottom, black 1px, transparent 1px);
+	background-size: 20px 20px;
+	background-color: white;
+
+	hyphens: none;
+	font-family: "Raleway", serif;
+}
+h1, h2, h3, h4, h5, h6{
+	font-size: inherit;
+	font-weight: inherit;
+}
+form, input, button, label, select, textarea{
+	font-family: inherit;
+	font-size: inherit;
+ 	background-color: transparent;
+	display: block;
+}
+input{
+	accent-color: red;
+}
+:root {
+	/* Dimensiones para margin, padding, gap, etc. */
+  --size-extrasmall: .3125em;
+  --size-small: .625em;
+  --size-medium: 1.25em; 
+  --size-large: 1.875em;  
+  --size-extralarge: 2.5em;          
+  --size-full: 100%;  
+  --minheight-full: 100vh;  
+  
+  	/* Grosor para las tipografías */
+  --weight-sm: 400;
+  --weight-md: 500;
+  --weight-lg: 600;
+
+    /* Color principal de la marca */
+  --color-primary: #8a2400;
+  	/* Color secundario para detalles de la web */
+  --color-secondary: #d1564e;
+
+    /* Ancho de los bordes */
+  --border-width: 1px;
+  	/* Color de los bordes */
+  --border-color: black;
+  	/* Radio para los botones */
+  --border-radius-circle: 50%;
+  	/* Transiciones */
+  --transition-visibility: all 0.5s ease;
+  --transition-all: all 0.3s ease;
+}
+/*Cursor
+Estilos para crear la animación de que un cuadrado siga al cursor*/
+.Cursor{
+    width: 1em;
+    min-height: 1em;
+    border: 2px solid var(--color-secondary);
+	box-shadow: 2px 3px 3px var(--color-secondary);
+    position: fixed;
+    top: -1rem;
+    left: -1rem;
+    pointer-events: none;
+    transition: all 0.5s linear;
+	z-index: 5;
+}
+@media (max-width: 1000px){
+	.Cursor{
+		display: none;
+	}
+}
+/*Cursor*/
+/*Section-header
+Aunque se llame header, esta sección de estilos es para el menú de navegación.
+Estructura:
+	- Header
+	- Header-svg (icono para el responsive)
+	- Header-nav
+	- Header-a
+	- Header-close (icono para cerrar el menu y volver al icono del responsive)
+*/
+.Header{
+    background-color: white;
+    border: var(--border-width) solid var(--border-color);
+
+    width: 10%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+@media (max-width: 1100px){
+    /*Importante para cuando aparezca el menú de navegación, quede por encima del main en responsive*/
+	.Header{
+		z-index: 3;
+	}
+}
+.Header-svg{
+	display: none;
+}
+@media (max-width: 1100px){
+	.Header-svg{
+		display: block;
+		width: 10vw;
+		max-width: 5.625em;
+        background-color: white;
+		padding: var(--size-medium);
+		margin: var(--size-small);
+        border-radius: var(--border-radius-circle);
+		border: var(--border-width) solid var(--border-color);
+        animation: headermove 2s ease 1.9s both;
+
+		position: fixed;
+        top: 0;
+        left: 0;
+		z-index: 2;
+	}
+}
+@media (max-width: 700px){
+	.Header-svg{
+		width: 10%;
+        padding: 0.3125em;
+        margin: 1em;
+	}
+}
+.Header-nav{
+	width: var(--size-full);
+	min-height: var(--minheight-full);
+    padding: var(--size-medium);
+}
+@media (max-width: 1100px){
+	.Header-nav{
+		display: none;
+	}
+}
+.Header-a{
+	width: var(--size-full);
+	min-height: 8.9vh;
+	/* background-color: aqua; */
+    text-align: center;
+	text-align: center;
+	font-weight: 300;
+	border-bottom: var(--border-width) solid var(--border-color);
+
+	transition: var(--transition-visibility);
+}
+/*Transicion y hover para que cada vez que el cursor se coloque encima de los titulos en el menú de navegación cambien de color*/
+.Header-a:hover{
+	color: var(--color-primary);
+	font-weight: var(--weight-lg);
+}
+@media (max-width: 1100px){
+	.Header-a:hover{
+		color: initial;
+		font-weight: initial;
+	}
+}
+.Header-close{
+	width: var(--size-large);
+	margin: var(--size-small);
+	color: var(--color-primary);
+
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	display: none;
+}
+@media (max-width: 650px){
+    .Header-close{
+        margin: 0em;
+    }
+}
+/*Header*/
+/*Main
+Contenido principal donde iran las imágenes, información personal y los apartados de about me y contact.
+Estructura:
+	- Header
+	- Section-aboutcontact
+	- Section-button
+	- Secciones de todos los proyectos
+*/
+.Main{
+	margin-left: 10%;
+}
+@media (max-width: 1100px){
+	.Main{
+		margin-left: 0;
+	}
+}
+/*Header (Section-hero)
+Estilos para la sección principal, el header.
+Estructura:
+	- Section-hero
+	- Hero-logo 
+	- Hero-img (Dentro de logo)
+	- Hero-h1 (Nombre de la web)
+	- Hero-info (Agrupa la información de dentro)
+	- Hero-h2 (Nombre del proyecto)
+	- Hero-h3--responsive (Año en el que se creó el proyecto y el tipo de diseño gráfico que es)
+    - Hero-p (Información del proyecto)
+    - Hero-h3--mobile (Responsive para cambiar de lugar la información)
+*/
+.Section-hero{
+    width: var(--size-full);
+    background: white;
+    padding-top: var(--size-medium);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: start;
+
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+@media (max-width: 1100px){
+	.Section-hero{
+		width: var(--size-full);
+        margin-left: 0%;
+	}
+}
+@media (max-width: 700px){
+	.Section-hero{
+        padding-top: var(--size-extrasmall);
+	}
+}
+.Hero-logo{
+    padding: var(--size-medium) var(--size-extralarge) var(--size-medium) var(--size-medium);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+@media (max-width: 1100px){
+    .Hero-logo{
+		padding-top: var(--size-small);
+        margin-left: 7em;
+	}
+}
+@media (max-width: 700px){
+    .Hero-logo{
+		padding: 0em;
+        margin: 1em 0em 0em 4.5em;
+	}
+}
+.Hero-img{
+	width: 5vw;
+	animation: spin 4s linear infinite; 
+	/*Este tipo de transform-style poco usual lo usé para crear la animación de que mi logo de vueltas constantemente en 3D*/
+    transform-style: preserve-3d;
+    transition: var(--transition-visibility);
+}
+@keyframes spin {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+@media (max-width: 1200px){
+    .Hero-img{
+		width: 7vw;
+	}
+}
+/*Eliminamos el nombre de la web porque el usuario ya sabe donde está y así, para google, tiene peso el SEO del nombre y que sea h1.*/
+.Hero-h1{
+	display: none;
+}
+.Hero-info{
+    width: var(--size-full);
+    /* background: lightseagreen; */
+    padding: 0em var(--size-medium);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+
+    font-weight: var(--weight-sm);
+}
+@media (max-width: 700px){
+    .Hero-info{
+        padding: 0em var(--size-medium) 0em 0em;
+    }
+}
+.Hero-h2{
+    padding: var(--size-small);    
+    font-size: 1.5vw;
+    font-weight: 650;
+    color: var(--color-primary);
+}
+/*Actualmente la información de Hero-h3--responsive al ser pantalla grande se elimina*/
+.Hero-h3--responsive{
+    display: none;
+}
+/*Una vez se haga más pequeña, la información pasa a estar debajo del título, y así hacer la web responsive*/
+@media (max-width: 1200px){
+	.Hero-h3--responsive{
+		display: block;
+        font-size: 1vw;
+        font-weight: var(--weight-lg);
+        color: var(--color-primary);
+	}
+}
+.Hero-p{
+    margin-bottom: var(--size-medium);
+    font-size: 1vw;
+}
+@media (max-width: 900px){
+    .Hero-p{
+        font-size: 1.5vw;
+    }
+}
+.Hero-h3--mobile{
+    margin: 0em var(--size-large);
+    font-weight: var(--weight-lg);
+    color: var(--color-primary);
+}
+@media (max-width: 1100px){
+	.Hero-h3--mobile{
+		display: none;
+	}
+    .Hero-info{
+        margin-right: var(--size-large);
+        gap: var(--size-extrasmall);
+    }
+}
+/*Header (Section-hero)*/
+/*Section-aboutcontact
+Estilos para los apartados o secciones de About me y Contact.
+Estructura: 
+	- Section-aboutcontact
+	- Section-info (Agrupa el apartado About me)
+	- Info-about
+	- About-p (Información sobre mí)
+	- About-close (Botón para cerrar el apartado)
+	
+	- Section-contact (Agrupa el apartado Contact)
+	- Info-after
+	- Info-p (Información para contactarme)
+	- Info-wrapper (Agrupa el formulario de contacto)
+	- Info-email (El lugar donde poner el email)
+	- Info-svg (Imagen como botón que acompaña el email)
+	- Info-close (Botón para cerrar el apartado)
+*/
+.Section-aboutcontact{
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 4;
+	pointer-events: none;
+}
+.Section-info{
+	width: 90%;
+	margin-left: 10%;
+	background-color: white;
+	padding: var(--size-extralarge);
+	border: var(--border-width) solid var(--border-color);
+
+	opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-all);
+}
+@media (max-width: 1100px){
+    .Section-info{
+        width: var(--size-full);
+        margin-left: 0%;
+    }
+}
+/*Quería añadir un pequeño detalle en el apartado para estilizarlo más, así que use el ::after para crear una línea por debajo*/
+.Section-info::after{
+	content: "";
+	display: block;
+	width: var(--size-full);
+	min-height: var(--size-medium);
+	margin: var(--size-medium) auto;
+	background: linear-gradient(
+		#aa4237, #c24e42, #ce523f, #ab4338, 
+		#dd5944, #ca4d33, #ab4338, #cb503e, 
+		#d95641);
+}
+.Info-about{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: start;
+	gap: var(--size-small);
+}
+.About-p{
+	hyphens: none;
+	font-size: 2.6vw;
+	font-weight: var(--weight-sm);
+	color: rgb(98, 98, 98);
+}
+.About-close{
+	font-size: 1.5vw;
+	font-weight: var(--weight-md);
+	color: grey;
+	text-decoration: underline;
+
+	transition: var(--transition-all);
+}
+.About-close:hover{
+	text-decoration: none;
+}
+
+
+.Section-contact{
+	width: 90%;
+	margin-left: 10%;
+	background-color: white;
+	padding: var(--size-extralarge);
+	border: var(--border-width) solid var(--border-color);
+	
+	opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-all);
+}
+@media (max-width: 1100px){
+    .Section-contact{
+        width: var(--size-full);
+        margin-left: 0%;
+    }
+}
+/*Quería añadir un pequeño detalle en el apartado para estilizarlo más, así que use el ::after para crear una línea por debajo*/
+.Section-contact::after{
+	content: "";
+	display: block;
+	width: var(--size-full);
+	min-height: var(--size-medium);
+	margin: var(--size-extralarge) auto;
+	background: linear-gradient(
+		#aa4237, #c24e42, #ce523f, #ab4338, 
+		#dd5944, #ca4d33, #ab4338, #cb503e, 
+		#d95641);
+}
+.Info-after{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: start;
+	gap: var(--size-medium);
+}
+.Info-p{
+	hyphens: none;
+	font-size: 2.7vw;
+	font-weight: var(--weight-sm);
+	color: rgb(98, 98, 98);
+}
+.Info-wrapper{
+	padding-top: var(--size-extralarge);
+	border-bottom: var(--border-width) solid grey;
+
+	display: flex;
+	flex-flow: row-reverse nowrap;
+	justify-content: start;
+	align-items: start;
+	gap: var(--size-small);
+}
+.Info-email{
+	width: var(--size-full);
+	font-size: .9em;
+	color: grey;
+}
+.Info-svg{
+	width: 1.5em;
+	color: grey;
+}
+.Info-close{
+	font-size: 1.5vw;
+	font-weight: var(--weight-md);
+	color: grey;
+	text-decoration: underline;
+
+	transition: var(--transition-all);
+}
+.Info-close:hover{
+	text-decoration: none;
+}
+/*Section-aboutcontact*/
+/*Section-button
+Estilo para crear los botones que permiten navegar hacia el inicio y final de la página.
+Estructura:
+	- Button-a--header
+	- Button-a--footer
+*/
+.Button-a--header{
+	width: var(--size-large);
+	min-height: var(--size-large);
+	/*Un gradiante cónico para que de la senación de un botón metálico*/
+	background: conic-gradient(
+		#d95641, #b14439, #b2453a, #d25645, 
+		#d56847, #d05441, #b85137, #b2453a, 
+		#c34f40, #df4647, #a94338, #c94943, 
+		#c85442, #a4413c, #d9543a, #d1564e, 
+		#ab4338, #bb4a3c, #dc5843, #b94839, 
+		#aa4237, #c24e42, #ce523f, #ab4338, 
+		#dd5944, #ca4d33, #ab4338, #cb503e, 
+		#d95641);
+	margin: var(--size-small);
+	border-radius: var(--border-radius-circle);
+	position: fixed;
+	top: 10%;
+	right: 1%;
+    z-index: 4;
+
+    transition: var(--transition-all);
+}
+/*Un hover para que cuando el cursor se coloque por encima, cambie de color y de entender al usuario que puede hacer click*/
+.Button-a--header:hover{
+	background: var(--color-primary);
+}
+.Button-a--footer{
+	width: var(--size-large);
+	min-height: var(--size-large);
+    /*Un gradiante cónico para que de la senación de un botón metálico*/
+	background: conic-gradient(
+		#d95641, #b14439, #b2453a, #d25645, 
+		#d56847, #d05441, #b85137, #b2453a, 
+		#c34f40, #df4647, #a94338, #c94943, 
+		#c85442, #a4413c, #d9543a, #d1564e, 
+		#ab4338, #bb4a3c, #dc5843, #b94839, 
+		#aa4237, #c24e42, #ce523f, #ab4338, 
+		#dd5944, #ca4d33, #ab4338, #cb503e, 
+		#d95641);
+	margin: var(--size-small);
+	border-radius: var(--border-radius-circle);
+	position: fixed;
+	bottom: 5%;
+	right: 1%;
+    z-index: 4;
+
+    transition: var(--transition-all);
+}
+/*Un hover para que cuando el cursor se coloque por encima, cambie de color y de entender al usuario que puede hacer click*/
+.Button-a--footer:hover{
+	background: var(--color-primary);
+}
+/*Section-button*/
+/*Section-festivalneon
+Estilos para organizar el proyecto Festival Neon.
+Estructura:  
+	- Section-festivalneon
+    - Festivalneon-img
+    - Festivalneon-img--one / ""--two / ""--three / ""--four
+*/
+.Section-festivalneon{
+    width: 87vw;
+    padding: 3.75em var(--size-extralarge);
+    margin: 0em var(--size-medium);
+
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    justify-content: center;
+    gap: var(--size-extralarge);
+
+    position: relative;
+    z-index: 2;
+}
+@media (max-width: 1200px){
+	.Section-festivalneon{
+        width: 95vw;
+        margin: auto;
+	}
+}
+.Festivalneon-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+
+    transition: var(--transition-all);
+}
+/*Quería hacer la animación de cuando haces click a una imagen se pone en grande y cuando vuelves a hacer click se vuelve al estado de antes.
+Por ello con javascript use toglle y en CSS usé .clicked para definir el estado de las imágenes cuando hicieras click.*/
+.Festivalneon-img.clicked{
+    transform: scale(1.3);
+    box-shadow: -2.5em 1.5625em var(--size-medium) rgba(0, 0, 0, 0.799);
+} 
+.Festivalneon-img--one{
+    grid-column: 2 / 3;
+}
+.Festivalneon-img--two{
+    grid-column: 1 / 2;
+}
+.Festivalneon-img--three{
+    grid-column: 3 / 4;
+}
+.Festivalneon-img--four{
+    grid-column: 2 / 3;
+}
+@media (max-width: 900px){
+	.Section-festivalneon{
+        grid-template-columns: repeat(1 , 4fr);
+        width: 80vw;
+    }
+    .Festivalneon-img{
+        grid-column: 1 / 2;
+    }
+    .Festivalneon-img--one{
+        grid-row: 1 / 2;
+    }
+    .Festivalneon-img--two{
+        grid-row: 2 / 3;
+    }
+    .Festivalneon-img--three{
+        grid-row: 3 / 4;
+    }
+    .Festivalneon-img--four{
+        grid-row: 4 / 5;
+    }
+}
+/*Section-festivalneon*/
+/*Section-sakoiro
+Estilos para el proyecto Sakoiro.
+Estructura: 
+    - Section-sakoiro
+    - Sakoiro-video (Wrapper para el video)
+    - Sakoiro-animation (Video principal)
+    - Sakoiro-grid (Grid con todas las imágenes)
+    - Sakoiro-img (Ajustar las imágenes al contenedor)
+*/
+.Section-sakoiro{
+    width: 90vw;
+    padding-top: var(--size-extralarge);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-medium);
+}
+@media (max-width: 1100px){
+    .Section-sakoiro{
+        width: var(--size-full);
+    }
+}
+.Sakoiro-video{
+    width: 60vw;
+    margin: auto;
+}
+@media (max-width: 1100px){
+    .Sakoiro-video{
+        width: 90vw;
+    }
+}
+.Sakoiro-animation{
+    width: var(--size-full);
+}
+.Sakoiro-grid{
+    width: var(--size-full);
+    padding: var(--size-medium);
+
+    display: grid;
+    grid-template-columns: repeat(6 , 1fr);
+    justify-content: center;
+    gap: var(--size-extralarge);
+}
+@media (max-width: 1200px){
+    .Sakoiro-grid{
+        grid-template-columns: repeat(4 , 4fr);
+    }
+}
+@media (max-width: 600px){
+    .Sakoiro-grid{
+        grid-template-columns: repeat(2 , 4fr);
+        gap: var(--size-small);
+    }
+}
+.Sakoiro-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+}
+/*Section-sakoiro*/
+/*Section-recipes
+Estilos para las imágenes del proyecto Hundred Recipes.
+Estructura:
+    - Section-recipes
+    - Recipes-grid
+    - Recipes-img
+    - Recipes-img--cover
+    - Recipes-img--backcover
+    - Recipes-img--animation (definimos esta imagen así porque es la única que va a realizar una animación)
+    - Recipes-img--analisisone / ""--analisistwo / ""--analisisthree / ""--analisisfour
+*/
+.Section-recipes{
+    width: var(--size-full);
+    padding-top: var(--size-extralarge);
+}
+.Recipes-grid{
+    width: var(--size-full);
+    padding: 0em var(--size-medium) var(--size-large) var(--size-large);
+
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    justify-content: center;
+    gap: var(--size-small);
+}
+.Recipes-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+}
+.Recipes-img--cover{
+    grid-column: 2 / 3;
+}
+.Recipes-img--backcover{
+    grid-column: 3 / 4;
+}
+.Recipes-img--animation{
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+
+    animation: moverecipe 4.5s linear infinite;
+}
+@keyframes moverecipe{
+    0%{
+        transform: rotateY(0deg);
+    }
+    25%{
+        transform: rotateY(40deg);
+    }
+    50%{
+        transform: rotateY(0deg);
+    }
+    75%{
+        transform: rotateY(-40deg);
+    }
+    100%{
+        transform: rotateY(0deg);
+    }
+}
+.Recipes-img--analisisone{
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+.Recipes-img--analisistwo{
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+.Recipes-img--analisisthree{
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+.Recipes-img--analisisfour{
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+}
+@media (max-width: 1100px){
+    .Recipes-img--cover{
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+	}
+    .Recipes-img--backcover{
+        grid-column: 3 / 5;
+        grid-row: 1 / 2;
+    }
+    .Recipes-img--animation{
+        grid-column: 1 / 5;
+        grid-row: 2 / 4;
+    }
+	.Recipes-img--analisisone{
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+    }
+    .Recipes-img--analisistwo{
+        grid-column: 3 / 5;
+        grid-row: 4 / 5;
+    }
+    .Recipes-img--analisisthree{
+        grid-column: 1 / 3;
+        grid-row: 5 / 6;
+    }
+    .Recipes-img--analisisfour{
+        grid-column: 3 / 5;
+        grid-row: 5 / 6;
+    }
+}
+@media (max-width: 600px){
+	.Recipes-img--cover{
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+	}
+    .Recipes-img--backcover{
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+    }
+    .Recipes-img--animation{
+        grid-row: 3 / 5;
+    }
+	.Recipes-img--analisisone{
+        grid-column: 1 / 3;
+        grid-row: 5 / 6;
+    }
+    .Recipes-img--analisistwo{
+        grid-column: 3 / 5;
+        grid-row: 5 / 6;
+    }
+    .Recipes-img--analisisthree{
+        grid-column: 1 / 3;
+        grid-row: 6 / 7;
+    }
+    .Recipes-img--analisisfour{
+        grid-column: 3 / 5;
+        grid-row: 6 / 7;
+    }
+}
+/*Section-recipes*/
+/*Section-anna
+Estilos para el proyecto Anna Atkins.
+Estructura:  
+    - Section-anna
+    - Anna-wrapper (Agrupa las dos imágenes principales)
+    - Anna-img
+    - Anna-p (Información sobre el proyecto)
+    - Anna-slider
+    - Slider-container (Agrupa las imágenes para crear el carrousel de imágenes)
+    - Slider-img (Colocamos las imágenes una encima de la otra)
+    - Slider-img--static
+    - Slider-arrows (Boton para que el usuario pueda pasar las imágenes)
+    - Slider-arrows--right (Colocamos un botón a la derecha)
+    - Slider-arrows--left (Colocamos otro botón a la izquierda)
+*/
+.Section-anna{
+    width: var(--size-full);
+    padding-top: var(--size-extralarge);
+}
+.Anna-wrapper{
+    width: 90%;
+    margin: auto;
+    margin-bottom: var(--size-small);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-large);
+}
+@media (max-width: 800px){
+	.Anna-wrapper{
+        flex-flow: column nowrap;
+	}
+}
+.Anna-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+}
+.Anna-p{
+    width: 60vw;
+    background-color: white;
+    border: var(--border-width) solid var(--border-color);
+    margin: auto;
+    padding: var(--size-extralarge) var(--size-medium) var(--size-medium) var(--size-medium);
+}
+@media (max-width: 900px){
+    .Anna-p{
+        width: 90vw;
+        font-size: 2vw;
+    }
+}
+.Anna-slider{
+    width: 35vw;
+    margin: auto;
+
+    position: relative;
+}
+.Slider-container{
+    margin: var(--size-medium) 0em;
+    position: relative;
+}
+.Slider-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: var(--transition-visibility);
+}
+@media (max-width: 1200px){
+    .Anna-slider{
+        width: 80vw;
+    }
+}
+/*Para crear la animación del carrousel, necesitamos agregarle esta característica en CSS porque será la etiqueta que javascript añadirá y eliminará para hacer visible una imagen u otra.*/
+.Slider-img.isVisible{
+    opacity: 1;
+}
+.Slider-img--static{
+    opacity: 1;
+    position: static;
+}
+.Slider-arrows{
+    width: 5em;
+    height: 5em;
+    color: white;
+    cursor: pointer;
+
+    position: absolute;
+    top: calc((100% - 80px) / 2);
+}
+@media (max-width: 600px){
+    .Slider-arrows{
+        width: 50px;
+        min-height: 50px;
+        top:  calc((100% - 50px) / 2);;
+    }
+}
+.Slider-arrows--right{
+    right: 0;
+}
+.Slider-arrows--left{
+    left: 0;
+}
+/*Section-anna*/
+/*Section-hubclub
+Estilos para el proyecto Hubclub.
+Estructura:
+    - Section-hubclub
+    - Hubclub-img (Imágenes principales)
+    - Hubclub-animation (Agrupa los dos grupos que crearán la animación pensada)
+    - Hubclub-up (Agrupa tres imágenes)
+    - Up-img 
+    - Hubclub-down (Agrupa otras tres imágenes)
+    - Down-img
+    - Hubclub-wrapper 
+    - Hubclub-video
+*/
+.Section-hubclub{
+    width: 100%;
+}
+.Hubclub-img{
+    width: 70%;
+    object-fit: cover;
+    margin: var(--size-extralarge) auto;
+
+}
+@media (max-width: 1200px){
+	.Hubclub-img{
+        width: 90%;
+	}
+}
+.Hubclub-animation{
+    width: 100%;
+    margin: var(--size-extralarge) 0em;
+}
+.Hubclub-up{
+    width: 75%;
+    min-height: 30vh;
+    margin: auto;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9375em;
+
+    position: relative;
+}
+@media (max-width: 900px){
+	.Hubclub-up{
+        width: 90%;
+        gap: 1.5625em;
+	}
+}
+@media (max-width: 600px){
+	.Hubclub-up{
+        width: 90%;
+        flex-flow: column nowrap;
+        gap: var(--size-extrasmall);
+	}
+}
+.Up-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+
+    transition: var(--transition-all);
+}
+/*Quería hacer la animación de cuando haces click a una imagen se pone en grande y cuando vuelves a hacer click se vuelve al estado de antes.
+Por ello con javascript use toglle y en CSS usé .clicked para definir el estado de las imágenes cuando hicieras click.*/
+.Up-img.clicked{
+    transform: scale(1.3);
+    box-shadow: -2.5em 1.5625em var(--size-medium) rgba(0, 0, 0, 0.799);
+    z-index: 1;
+}
+@media (max-width: 900px){
+    .Up-img.clicked{
+        transform: scale(1.1);
+    }
+}
+@media (max-width: 600px){
+	.Up-img{
+        margin-top: -3.75em;
+    }
+    .Up-img.clicked{
+        transform: scale(1);
+    }
+    .Up-img--margin{
+        margin-top: 0em;
+    }
+}
+.Hubclub-down{
+    width: 85%;
+    margin: auto;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: start;
+    gap: var(--size-large);
+
+    position: relative;
+}
+@media (max-width: 900px){
+	.Hubclub-down{
+        gap: var(--size-extrasmall);
+	}
+}
+@media (max-width: 600px){
+	.Hubclub-down{
+        width: 90%;
+        flex-flow: column nowrap;
+	}
+}
+.Down-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+    /*Necesitaba crear dos grupos de tres para poder colocar cada grupo como se ve. En este caso, las imágenes de abajo les pongo un margin-top negativo para subirlas y superponerlas a las de arriba.*/
+    margin-top: -3.75em;
+
+    transition: var(--transition-all);
+}
+/*Quería hacer la animación de cuando haces click a una imagen se pone en grande y cuando vuelves a hacer click se vuelve al estado de antes.
+Por ello con javascript use toglle y en CSS usé .clicked para definir el estado de las imágenes cuando hicieras click.*/
+.Down-img.clicked{
+    transform: scale(1.2);
+    box-shadow: -2.5em 1.5625em var(--size-medium) rgba(0, 0, 0, 0.799);
+}
+@media (max-width: 900px){
+    .Down-img.clicked{
+        transform: scale(1.1);
+    }
+}
+@media (max-width: 600px){
+    .Down-img.clicked{
+        transform: scale(1);
+    }
+}
+.Hubclub-wrapper{
+    width: var(--size-full);
+    padding: var(--size-large);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-medium);
+}
+@media (max-width: 900px){
+	.Hubclub-wrapper{
+        flex-flow: column;
+	}
+}
+.Hubclub-video{
+    width: 50%;
+}
+@media (max-width: 900px){
+	.Hubclub-video{
+        width: 90%;
+	}
+}
+/*Section-hubclub*/
+/*Section-cookclon
+Estilos para el proyecto Cookclon.
+Estructura: 
+    - Section-cookclon
+    - Cookclon-wrapper (Agrupa las imágenes principales)
+    - Cookclon-img
+    - Cookclon-grid (Colocamos las imágenes en una cuadrícula)
+    - Grid-img
+    - Coocklon-carrousel
+    - Carrousel-container (Agrupa las imágenes que van a ir en el carrousel con los botones)
+    - Carrousel-img
+    - Carrousel-arrows (Botones para permitir al usuario pasar las imágenes)
+    - Carrousel-arrows--right (Colocar uno de los botones a la derecha)
+    - Carrousel-arrows--left (Colocar el otro botón a la izquierda)
+*/
+.Section-cookclon{
+    width: var(--size-full);
+    padding-top: var(--size-extralarge);
+}
+.Cookclon-wrapper{
+    width: 80%;
+    margin: auto;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-medium);
+}
+@media (max-width: 600px){
+	.Cookclon-wrapper{
+        flex-flow: column nowrap;
+    }
+}
+@media (max-width: 600px){
+	.Cookclon-wrapper{
+        width: 90%;
+    }
+}
+.Cookclon-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+}
+.Cookclon-grid{
+    width: var(--size-full);
+    padding: var(--size-large);
+
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    justify-content: center;
+    gap: var(--size-small);
+}
+@media (max-width: 900px){
+	.Cookclon-grid{
+        grid-template-columns: repeat(2 , 1fr);
+        gap: var(--size-extrasmall);
+    }
+}
+@media (max-width: 450px){
+	.Cookclon-grid{
+        grid-template-columns: repeat(1 , 1fr);
+        gap: var(--size-extrasmall);
+    }
+}
+.Grid-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+}
+.Cookclon-carrousel{
+    width: 60%;
+    margin: var(--size-medium) auto;
+}
+@media (max-width: 900px){
+	.Cookclon-carrousel{
+        width: 90%;
+    }
+}
+.Carrousel-container{
+    position: relative;
+}
+.Carrousel-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: var(--transition-visibility);
+}
+/*Quería hacer la animación de cuando haces click a una imagen se pone en grande y cuando vuelves a hacer click se vuelve al estado de antes.
+Por ello con javascript use toglle y en CSS usé .clicked para definir el estado de las imágenes cuando hicieras click.*/
+.Carrousel-img.isVisible{
+    opacity: 1;
+}
+.Carrousel-img--static{
+    opacity: 1;
+    position: static;
+}
+.Carrousel-arrows{
+    width: 5em;
+    height: 5em;
+    color: var(--color-primary);
+    cursor: pointer;
+
+    position: absolute;
+    top: calc((100% - 80px) / 2);
+}
+@media (max-width: 600px){
+    .Carrousel-arrows{
+        width: 50px;
+        height: 50px;
+        top: calc((100% - 50px) / 2);
+    }
+}
+.Carrousel-arrows--right{
+    right: 0;
+}
+.Carrousel-arrows--left{
+    left: 0;
+}
+/*Section-cookclon*/
+/*Section-clon
+Estilos para el proyecto Clon.
+Estructura: 
+    - Section-clon
+    - Clon-wrapper (Agrupa las imagenes principales)
+    - Wrapper-img
+    - Clon-p (Explicación del proyecto)
+    - Clon-slider
+    - Clon-container (Agrupa las imágenes que irán en el carrousel)
+    - Clon-img
+    - Clon-arrows (Botones para permitir al usuario pasar las imágenes)
+    - Clon-arrows--right (Colocar uno de los botones a la derecha)
+    - Clon-arrows--left (Colocar el otro botón a la izquierda)
+    - Clon-gif
+    - Clon-video
+*/
+.Section-clon{
+    width: var(--size-full);
+    padding-top: var(--size-extralarge);
+}
+.Clon-wrapper{
+    width: 70vw;
+    margin: var(--size-medium) auto;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-medium);
+}
+@media (max-width: 800px){
+	.Clon-wrapper{
+        width: 90vw;
+        flex-flow: column nowrap;
+	}
+}
+.Wrapper-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+}
+.Clon-p{
+    width: 70%;
+    background-color: white;
+    border: var(--border-width) solid var(--border-color);
+    padding: var(--size-medium);
+    margin: auto;
+}
+@media (max-width: 800px){
+	.Clon-p{
+        width: 90vw;
+        margin: var(--size-medium) 0em var(--size-medium) 0em;
+        font-size: 2vw;
+    }
+}
+.Clon-slider{
+    width: 70%;
+    margin: auto;
+    padding-top: var(--size-medium);
+    position: relative;
+}
+@media (max-width: 800px){
+	.Clon-slider{
+        width: 90vw;
+    }
+}
+.Clon-container{
+    position: relative;
+}
+.Clon-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.25em;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: var(--transition-visibility);
+}
+/*Quería hacer la animación de cuando haces click a una imagen se pone en grande y cuando vuelves a hacer click se vuelve al estado de antes.
+Por ello con javascript use toglle y en CSS usé .clicked para definir el estado de las imágenes cuando hicieras click.*/
+.Clon-img.isVisible{
+    opacity: 1;
+}
+.Clon-img--static{
+    opacity: 1;
+    position: static;
+}
+.Clon-arrows{
+    width: 5em;
+    height: 5em;
+    color: white;
+    cursor: pointer;
+
+    position: absolute;
+    top: calc((100% - 80px) / 2);
+}
+@media (max-width: 600px){
+    .Clon-arrows{
+        width: 50px;
+        height: 50px;
+        top: calc((100% - 50px) / 2);;
+    }
+}
+.Clon-arrows--right{
+    right: 0;
+}
+.Clon-arrows--left{
+    left: 0;
+}
+.Clon-gif{
+    width: 70%;
+    margin: auto;
+}
+@media (max-width: 800px){
+	.Clon-gif{
+        width: 90vw;
+    }
+}
+.Clon-video{
+    margin: 1.25em 0em 1.25em 0em;
+    width: var(--size-full);
+}
+/*Section-clon*/
+/*Section-caoveg
+Estilos para el proyecto Caoveg.
+Estructura: 
+    - Section-caoveg
+    - Caoveg-grid (Agrupamos imágenes y las colocamos en una cuadrícula)
+    - Caoveg-img
+    - Caoveg-carrousel
+    - Mockup-container (Agrupa aquellas imágenes que van a superposicionarse para el carrousel)
+    - Mockup-img
+    - Mockup-arrows (Botones para permitir al usuario pasar las imágenes)
+    - Mockup-arrows--right (Colocar uno de los botones a la derecha)
+    - Mockup-arrows--left (Colocar otro de los botones a la izquierda)
+    - Caoveg-gif
+    - Caoveg-video
+    - Caoveg-video--one / ""--two / ""--three
+*/
+.Section-caoveg{
+    width: var(--size-full);
+    padding-top: var(--size-extralarge);
+}
+.Caoveg-grid{
+    width: 95%;
+    padding: var(--size-extralarge);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(5 , 1fr);
+    justify-content: center;
+    gap: var(--size-small);
+}
+@media (max-width: 900px){
+	.Caoveg-grid{
+        grid-template-columns: repeat(2 , 1fr);
+    }
+}
+@media (max-width: 600px){
+	.Caoveg-grid{
+        grid-template-columns: repeat(1 , 1fr);
+    }
+}
+.Caoveg-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+}
+@media (max-width: 900px){
+    .Caoveg-img--responsive{
+        grid-column: 1 / 3;
+        grid-row: 3 / 5;
+    }
+}
+.Caoveg-carrousel{
+    width: 80%;
+    margin: auto;
+    padding-top: var(--size-extralarge);
+
+    position: relative;
+}
+@media (max-width: 900px){
+	.Caoveg-carrousel{
+        width: 90%;
+    }
+}
+.Mockup-container{
+    background-color: black;
+    position: relative;
+}
+.Mockup-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: var(--transition-visibility);
+}
+/*Quería hacer la animación de cuando haces click a una imagen se pone en grande y cuando vuelves a hacer click se vuelve al estado de antes.
+Por ello con javascript use toglle y en CSS usé .clicked para definir el estado de las imágenes cuando hicieras click.*/
+.Mockup-img.isVisible{
+    opacity: 1;
+}
+.Mockup-img--static{
+    opacity: 1;
+    position: static;
+}
+.Mockup-arrows{
+    width: 5em;
+    height: 5em;
+    color: white;
+    cursor: pointer;
+
+    position: absolute;
+    top: calc((100% - 80px) / 2);
+}
+@media (max-width: 600px){
+    .Mockup-arrows{
+        width: 50px;
+        min-height: 50px;
+        top: calc((100% - 50px) / 2);
+    }
+}
+.Mockup-arrows--right{
+    right: 0;
+}
+.Mockup-arrows--left{
+    left: 0;
+}
+.Caoveg-gif{
+    width: 90%;
+    margin: auto;
+    padding: var(--size-extralarge);
+
+    display: grid;
+    grid-template-columns: repeat(3 , 2fr);
+    justify-content: center;
+}
+@media (max-width: 600px){
+    .Caoveg-gif{
+        grid-template-columns: repeat(1 , 1fr);
+        gap: var(--size-medium);
+        width: var(--size-full);
+    }
+}
+.Caoveg-video{
+    width: var(--size-full);
+}
+@media (max-width: 600px){
+    .Caoveg-video{
+        grid-column: 1 / 2;
+    }
+}
+.Caoveg-video--one{
+    grid-column: 1 / 2;
+}
+.Caoveg-video--two{
+    grid-column: 3 / 4;
+}
+.Caoveg-video--three{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+@media (max-width: 600px){
+    .Caoveg-video{
+        grid-column: 1 / 3;
+    }
+    .Caoveg-video--one{
+        grid-column: 1 / 3;
+    }
+    .Caoveg-video--two{
+        grid-column: 1 / 3;
+    }
+    .Caoveg-video--three{
+        grid-column: 1 / 3;
+    }
+}
+/*Section-caoveg*/
+/*Section-damian
+Estilos para el proyecto Damián Castagna.
+Estructura:
+    -Hero-h4 (En el caso de este proyecto, tiene un eslogán que añadimos al principio en el header, pero al ser un caso aislado, se lo añadimos en esta sección)
+    - Section-damian
+    - Damian-gif
+    - Damian-video
+    - Damian-wrapper (Agrupa las imágenes de mockups de la marca)
+    - Damian-img
+    - Damian-animation (Agrupa las imágenes que crean la animación)
+    - Drag-img
+    - Drag-img--tag (Definimos cada imagen para colocarlas donde queremos)
+    - Drag-img--front (Definimos cada imagen para colocarlas donde queremos)
+    - Drag-img--back (Definimos cada imagen para colocarlas donde queremos)
+    - Drag-img--cap (Definimos cada imagen para colocarlas donde queremos)
+*/
+.Hero-h4{
+    font-size: 1vw;
+    font-weight: 550;
+    text-align: center;
+    padding: var(--size-extrasmall);
+}
+@media (max-width: 900px){
+	.Hero-h4{
+        font-weight: 700;
+    }
+}
+.Section-damian{
+    width: var(--size-full);
+    padding-top: var(--size-extralarge);
+}
+.Damian-gif{
+    width: 75%;
+    margin: auto;
+}
+@media (max-width: 1000px){
+    .Damian-gif{
+        width: 90%;
+    }
+}
+.Damian-video{
+    width: var(--size-full);
+}
+.Damian-wrapper{
+    width: 80%;
+    margin: auto;
+    margin-top: var(--size-medium);
+    padding: var(--size-medium);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-extralarge);
+}
+@media (max-width: 900px){
+	.Damian-wrapper{
+        width: 90%;
+        flex-flow: column nowrap;
+    }
+}
+.Damian-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+}
+.Damian-animation{
+    width: var(--size-full);
+    padding: 0em var(--size-medium) var(--size-medium) var(--size-medium);
+
+    display: grid;
+    grid-template-columns: repeat(6 , 4fr);
+    justify-content: center;
+}
+@media (max-width: 800px){
+    .Damian-animation{
+        grid-template-columns: repeat(5 , 4fr);
+    }
+}
+.Drag-img{
+    width: var(--size-full);
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.25em;
+    transition: var(--transition-all);
+    filter: blur(3px);
+}
+/*Quería hacer la animación de cuando haces click a una imagen se pone en grande y cuando vuelves a hacer click se vuelve al estado de antes.
+Por ello con javascript use toglle y en CSS usé .clicked para definir el estado de las imágenes cuando hicieras click.*/
+.Drag-img.clicked{
+    /*En este caso en concreto, las imágenes está con un filtro blur pero al hacer click, ese filtro se quita*/
+    transform: scale(1.5);
+    filter: blur(0px);
+    z-index: 2;
+}
+.Drag-img--tag{
+    grid-column: 3 / 5;
+}
+@media (max-width: 800px){
+    .Drag-img--tag{
+        grid-column: 3 / 5;
+    }
+}
+.Drag-img--front{
+    grid-column: 4 / 6;
+    grid-row: 2 / 4;
+}
+@media (max-width: 800px){
+    .Drag-img--front{
+        grid-column: 3 / 5;
+        grid-row: 2 / 3;
+    }
+}
+.Drag-img--back{
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+@media (max-width: 800px){
+    .Drag-img--back{
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+    }
+}
+.Drag-img--cap{
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+}
+@media (max-width: 800px){
+    .Drag-img--cap{
+        grid-column: 2 / 4;
+        grid-row: 4 / 5;
+    }
+}
+/*Section-damian*/
+/*Main*/
+
+/*Footer
+Estilos para crear el footer o pie de página.
+Estructura:
+	- Footer
+	- Footer-container (Agrupa la información que hay dentro)
+	- Footer-h3 (Información que anima a contactarme y enlaces que llevan a mi página web)*/
+.Footer{
+	width: var(--size-full);
+	background-color: var(--color-primary);
+	padding: var(--size-medium) var(--size-small);
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	position: relative;
+	z-index: 3;
+
+	overflow: hidden;
+}
+.Footer-container{
+	display: flex;
+	white-space: nowrap;
+	animation: scrollfooter 15s linear infinite;
+	transition: var(--transition-all);
+}
+.Footer-h3{
+	font-weight: var(--weight-md);
+	margin-right: 2em;
+    color: white;
+}
+@keyframes scrollfooter{
+	from{
+		transform: translateX(100%);
+	}
+	to{
+		transform: translateX(-100%);
+	}
+}
+/*Importante este footer, porque al crear una animación donde la información está continuamente dado vueltas, si el usario quiere hacer click, con esta opción la animación se para y luego continúa donde lo ha dejado.*/
+.Footer-container:hover {
+	animation-play-state: paused;
+}
