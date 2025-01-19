@@ -352,6 +352,11 @@ Estructura:
         font-size: 1.5vw;
     }
 }
+@media (max-width: 600px){
+    .Hero-p{
+        font-size: 2vw;
+    }
+}
 .Hero-h3--mobile{
     margin: 0em var(--size-large);
     font-weight: var(--weight-lg);
@@ -1295,7 +1300,6 @@ Estructura:
 @media (max-width: 800px){
 	.Clon-p{
         width: 90vw;
-        margin: var(--size-medium) 0em var(--size-medium) 0em;
         font-size: 2vw;
     }
 }
