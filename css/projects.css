@@ -326,7 +326,7 @@ Estructura:
 }
 .Hero-h2{
     padding: var(--size-small);    
-    font-size: 1.5vw;
+    font-size: 2.3vw;
     font-weight: 650;
     color: var(--color-primary);
 }
@@ -338,7 +338,7 @@ Estructura:
 @media (max-width: 1200px){
 	.Hero-h3--responsive{
 		display: block;
-        font-size: 1vw;
+        font-size: 2vw;
         font-weight: var(--weight-lg);
         color: var(--color-primary);
 	}
@@ -449,6 +449,17 @@ Estructura:
 .About-close:hover{
 	text-decoration: none;
 }
+@media (max-width:600px){
+    .Section-info{
+        padding: var(--size-medium) var(--size-large);
+    }
+    .About-p{
+        font-size: 3.5vw;
+    }
+    .About-close{
+        font-size: 3vw;
+    }
+}
 
 
 .Section-contact{
@@ -474,7 +485,7 @@ Estructura:
 	display: block;
 	width: var(--size-full);
 	min-height: var(--size-medium);
-	margin: var(--size-extralarge) auto;
+	margin: var(--size-large) auto;
 	background: linear-gradient(
 		#aa4237, #c24e42, #ce523f, #ab4338, 
 		#dd5944, #ca4d33, #ab4338, #cb503e, 
@@ -522,6 +533,23 @@ Estructura:
 }
 .Info-close:hover{
 	text-decoration: none;
+}
+@media (max-width:600px){
+    .Section-contact{
+        padding: var(--size-medium);
+    }
+    .Info-p{
+        font-size: 3.5vw;
+    }
+    .Info-email{
+        font-size: .7em;
+    }
+    .Info-svg{
+        width: 1em;
+    }
+    .Info-close{
+        font-size: 3vw;
+    }
 }
 /*Section-aboutcontact*/
 /*Section-button
